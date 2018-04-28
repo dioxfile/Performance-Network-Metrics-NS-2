@@ -17,24 +17,43 @@ Usage: root@terminal:# ./Metrics_Performance_Extractor.sh
 
 Result: 
   SIMULATION 0
+  
   Generated Packets:
+  
   9562
+  
   Throughput:
+  
   129.39777
+  
   Energy:
+  
   5.68533
+  
   Loss by Selfishness:
+  
   459
+  
   Total Loss:
+  
   483
+  
   Forward:
+  
   0.54511
+  
   Overhead:
+  
   326
+  
   Delay:
+  
   0.032161
+  
   Jitter:
+  
   0.003935381
+  
   END SIMULATION
   
   OBS: In Brazil decimal places in Brazil use ',' instead '.'.
