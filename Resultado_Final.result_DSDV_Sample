@@ -1,0 +1,23 @@
+
+SIMULATION 0
+Generated Packets:
+9562
+Throughput:
+121,49368
+Energy:
+2,72598
+Loss by Selfishness:
+167
+Total Loss:
+3946
+Forward:
+0,74921
+Overhead:
+1009
+Delay:
+0,003458
+Jitter:
+0,000484721
+END SIMULATION
+
+
