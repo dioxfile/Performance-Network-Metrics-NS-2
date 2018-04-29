@@ -62,7 +62,7 @@ Result:
   
  How do I test this script?
  
- Step 1 - Download Metrics_Performance_Extractor.sh and TRACE_File_DSDV.tr. Put them in the same directory/folder.
+ Step 1 - Download Metrics_Performance_Extractor.sh and TRACE_File_DSDV.tr. Put them in the same directory/folder and change the file name TRACE_File_DSDV.tr to TRACE_File.tr
  
  Step 2 - Install dialog (not substancial) and gawk (substancial). Ex. apt install dialog gawk.
  
