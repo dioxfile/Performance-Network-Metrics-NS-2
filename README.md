@@ -59,3 +59,28 @@ Result:
   OBS: Decimal places in Brazil use ',' instead '.'.
   
   The script only will works correctly if the trace file is inside the same folder of the script, "TRACE_File.tr". Thus, after the script is executed seven folders are created, for example: Delay/, Energy/, Forward/, Jitter/, Overhead/, Packet_Loss/ and Throughput/. All folders contain many files that can be used for simulation analysis. In addition, it is necessary to change parameters in the script according to the simulation to be performed, for example: simulation time, nodes numbers, or a new routing protocol.
+  
+ How do I test this script?
+ 
+ Step 1 - Download Metrics_Performance_Extractor.sh and TRACE_File_DSDV.tr. Put them in the same directory/folder.
+ 
+ Step 2 - Install dialog (not substancial) and gawk (substancial). Ex. apt install dialog gawk.
+ 
+ Step 3 - Execute permission to script with the following command: sudo chmod +x Metrics_Performance_Extractor.sh
+ 
+ Step 4 - Run the script: Ex. ./Metrics_Performance_Extractor.sh
+ 
+ 
+How can I use this script in my NS-2 simulations?
+
+Step 1 - Download the script (e.g., Metrics_Performance_Extractor.sh) and open it with your preferred editor And change the parameters according to your needs, for instance: a) trace file name, line 16 "TRACE_File.tr"; b) simulation time line 17, "60.000000000" is the simulation time; c) nodes numbers in all lines with this code "for conta in $(seq 0 62)", 62 is the node quantity. Save the script to the same folder where the simulation trace was generated.
+
+Step 2 - Install dialog (not substancial) and gawk (substancial). Ex. apt install dialog gawk.
+ 
+Step 3 - Execute permission to script with the following command: sudo chmod +x Metrics_Performance_Extractor.sh
+ 
+Step 4 - Run the script: Ex. ./Metrics_Performance_Extractor.sh
+ 
+
+OBS: This script was only used with CBR traffic, but it can be adapted to TCP easily.
+  
