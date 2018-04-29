@@ -62,7 +62,7 @@ Result:
   
  How do I test this script?
  
- Step 1 - Download Metrics_Performance_Extractor.sh and TRACE_File_DSDV.tr. Put them in the same directory/folder and change the file name TRACE_File_DSDV.tr to TRACE_File.tr
+ Step 1 - Download Metrics_Performance_Extractor.sh and TRACE_File_DSDV.tr. Put them in the same directory/folder and change the file name TRACE_File_DSDV.tr to TRACE_File.tr.
  
  Step 2 - Install dialog (not substancial) and gawk (substancial). Ex. apt install dialog gawk.
  
@@ -73,7 +73,7 @@ Result:
  
 How can I use this script in my NS-2 simulations?
 
-Step 1 - Download the script (e.g., Metrics_Performance_Extractor.sh) and open it with your preferred editor And change the parameters according to your needs, for instance: a) trace file name, line 16 "TRACE_File.tr"; b) simulation time line 17, "60.000000000" is the simulation time; c) nodes numbers in all lines with this code "for conta in $(seq 0 62)", 62 is the node quantity. Save the script to the same folder where the simulation trace was generated.
+Step 1 - Download the script (e.g., Metrics_Performance_Extractor.sh) and open it with your preferred editor and change the parameters according to your needs, for instance: a) trace file name, line 16 "TRACE_File.tr"; b) simulation time line 17, "60.000000000" is the simulation time; c) nodes numbers in all lines with this code "for conta in $(seq 0 62)", 62 is the node quantity. Save the script to the same folder where the simulation trace was generated and change the name of your trace to TRACE_File.tr.
 
 Step 2 - Install dialog (not substancial) and gawk (substancial). Ex. apt install dialog gawk.
  
