@@ -11,7 +11,7 @@
   *   You should have received a copy of the GNU General Public License along with this program; If not, see <http://www.gnu.org/licenses/>.
 
   Script to extract performance metrics from NS-2 trace, such as: throughput, end-to-end delay, jitter, routing overhead, packet forwarding, packet loss rate (selfish nodes too) and energy consumption.
-  Developed by Diógenes Antonio Marques José (Mato Grosso State University (UNEMAT) - Barra do Bugres - MT, BRAZIL.) for extract performance metrics in NS-2 MANETs Trace File (e.g., only old trace format).
+  Developed by Diógenes Antonio Marques José (Mato Grosso State University (UNEMAT) - Barra do Bugres - MT, BRAZIL.) for extract performance metrics from NS-2 MANETs Trace File (e.g., only old trace format).
 
 Usage: root@terminal:# ./Metrics_Performance_Extractor.sh
 
