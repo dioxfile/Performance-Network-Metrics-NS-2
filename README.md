@@ -2,7 +2,7 @@
  
   * Name: "Performance-Network-Metrics-NS-2". Script to extract performance metrics from NS-2 trace, such as: throughput, end-to-end delay, jitter, routing overhead, packet forwarding, packet loss rate (selfish nodes too) and energy consumption.                                           
   
-  *   Copyright (C) 2013 by Diogenes Antonio Marque Jose dioxfile@unemat.br.                                            
+  *   Copyright (C) 2013 by Diógenes Antônio Marque José dioxfile@unemat.br.                                            
   *   UNEMAT Brazil, Barra do Bugres Campus: bbg.unemat.br.                 
   *   This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.                               
  
