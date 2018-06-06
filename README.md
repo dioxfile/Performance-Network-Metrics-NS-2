@@ -10,7 +10,7 @@
   
   *   You should have received a copy of the GNU General Public License along with this program; If not, see <http://www.gnu.org/licenses/>.
 
-  Script to extract performance metrics from NS-2 trace, such as: throughput, end-to-end delay, jitter, routing overhead, packet forwarding, packet loss rate (e.g., selfish nodes too, but you should create a packet dropp event by selfishness in NS-2 as 'SEL'.) and energy consumption.
+  Script to extract performance metrics from NS-2 trace, such as: throughput, end-to-end delay, jitter, routing overhead, packet forwarding, packet loss rate (e.g., selfish nodes too, but you should create a packet dropping event by selfishness in NS-2 as 'SEL'.) and energy consumption.
   Developed by Diógenes Antônio Marques José (Mato Grosso State University (UNEMAT) - Barra do Bugres - MT, BRAZIL.) for extract performance metrics from NS-2 MANETs Trace File (e.g., only old trace format).
 
 Usage: root@terminal:# ./Metrics_Performance_Extractor.sh
