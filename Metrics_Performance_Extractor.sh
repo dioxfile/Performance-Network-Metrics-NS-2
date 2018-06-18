@@ -13,7 +13,7 @@ for sim in $(seq 0 0);
 do 
 
 echo "Cleanning Trace..."
-cat TRACE_File.tr   | sed 's/\[//g' | sed 's/\]//g' | sed 's/\_//g' | sed 's/\:/ /g' \
+cat TRACE_File_DSDV.tr   | sed 's/\[//g' | sed 's/\]//g' | sed 's/\_//g' | sed 's/\:/ /g' \
 | awk -F" " '{ {if($2 < 60.000000000) {print}}}' > Trace_Cleaned_Sujo.tr 
 cat Trace_Cleaned_Sujo.tr | uniq > Trace_Cleaned.tr
 
@@ -85,7 +85,7 @@ rm Energy/Energia_Final_Geral.e
 for conta in $(seq 0 62)
 do
 #The fields $3 and $2 are based on the file ''Energia_total_col_nodo_energy_unicos.e' and correspond to the simulation time and total energy 
-cat Energy/Energia_total_col_nodo_energy.e  | awk -F" " '{if($1=="'$conta'" && $3 <= 100.000000) {print $3 " " $2}}' > Energy/Energia_total_$conta.e 
+cat Energy/Energia_total_col_nodo_energy.e  | awk -F" " '{if($1=="'$conta'") {print $3 " " $2}}' > Energy/Energia_total_$conta.e 
 cat Energy/Energia_total_$conta.e | awk -F" " 'END { print (100.000000 - $2) }' > Energy/Energia_Final_$conta.e
 cat  Energy/Energia_Final_$conta.e >> Energy/Energia_Final_Geral.e
 done;
