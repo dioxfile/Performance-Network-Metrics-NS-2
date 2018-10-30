@@ -27,22 +27,34 @@ Usage:
  
  Step 1 - Download Metrics_Performance_Extractor.sh and TRACE_File_DSDV.tr. Put them in the same directory/folder and change the file name TRACE_File_DSDV.tr to TRACE_File.tr.
  
- Step 2 - Install dialog (not substancial) and gawk (substancial). Ex. apt install dialog gawk.
+ Step 2 - Install dialog (not substancial) and gawk (substancial). Ex. command on shell Linux:
  
- Step 3 - Execute permission to script with the following command: sudo chmod +x Metrics_Performance_Extractor.sh
+ ``` sudo apt install dialog gawk```
  
- Step 4 - Run the script: Ex. ./Metrics_Performance_Extractor.sh
+ Step 3 - Execute permission to script with the following command shell Linux: 
+ 
+  ```sudo chmod +x Metrics_Performance_Extractor.sh```
+ 
+ Step 4 - Run the script: Ex. comand on shell Linux:
+ 
+ ```sudo ./Metrics_Performance_Extractor.sh```
  
  
-How can I use this script in my NS-2 simulations?
+# How can I use this script in my NS-2 simulations?
 
 Step 1 - Download the script (e.g., Metrics_Performance_Extractor.sh) and open it with your preferred editor and change the parameters according to your needs, for instance: a) trace file name, line 16 "TRACE_File.tr"; b) simulation time line 17, "60.000000000" is the simulation time; c) nodes numbers in all lines with this code "for conta in $(seq 0 62)", 62 is the node quantity. Save the script to the same folder where the simulation trace was generated and change the name of your trace to TRACE_File.tr.
 
-Step 2 - Install dialog (not substancial) and gawk (substancial). Ex. apt install dialog gawk.
+Step 2 - Install dialog (not substancial) and gawk (substancial). Ex. command on shell Linux:
+
+```sudo apt install dialog gawk```
  
-Step 3 - Execute permission to script with the following command: sudo chmod +x Metrics_Performance_Extractor.sh
+Step 3 - Execute permission to script with the following command: 
+
+```sudo chmod +x Metrics_Performance_Extractor.sh```
  
-Step 4 - Run the script: Ex. ./Metrics_Performance_Extractor.sh
+Step 4 - Run the script on shell Linux: Ex. 
+
+```./Metrics_Performance_Extractor.sh```
  
 
 OBS: This script was only used with CBR traffic, but it can be adapted to TCP easily.
