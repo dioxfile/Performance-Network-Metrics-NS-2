@@ -35,7 +35,7 @@ Usage:
  
   ```sudo chmod +x Metrics_Performance_Extractor.sh```
  
- Step 4 - Run the script: Ex. comand on shell Linux:
+ Step 4 - Run the script: Ex. command on shell Linux:
  
  ```sudo ./Metrics_Performance_Extractor.sh```
  
