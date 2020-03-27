@@ -214,10 +214,10 @@ cat  Overhead/OVER.tr | awk -F" " '{
 
 #Check if you have some empty file and writes a value for the average calculus is computed without errors.
 if [ ! -s Overhead/OVER_By_$conta.ov ]; then
-echo "Arquivo Overhead/OVER_By_$conta.ov está vazio!"
+echo "File Overhead/OVER_By_$conta.ov is empty!"
 echo "0" > Overhead/OVER_By_$conta.ov
 else
-echo "Arquivo Overhead/OVER_By_$conta.ov não está vazio!"
+echo "File Overhead/OVER_By_$conta.ov isn't empty!"
 fi
 awk -F" " 'END {if($1=="0") { print NR==0} else { print NR} }' Overhead/OVER_By_$conta.ov >> Overhead/Overhead_by_no.tr
 done;
