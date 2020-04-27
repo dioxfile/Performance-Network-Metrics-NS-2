@@ -106,7 +106,7 @@ echo "Extracting Packet Loss Rate..."
 mkdir -pv Packet_Loss
 #Print file with all packages marked with event 'D'
 cat Trace_Cleaned.tr | awk -F " " '{  
-	if($1 == "D" && $5 != "END" && $7 != "OLSR" && $7 != "AODV" && $7 != "DSR" && $7 != "DSDV"){  
+	if($1 == "D" && $5 != "END" && $7 != "OLSR" && $7 != "AODV" && $7 != "DSR" && $7 != "message"){  
 		{print}
 	}		
  }' > Packet_Loss/Trace_Descartados.tr
