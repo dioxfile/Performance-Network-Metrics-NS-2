@@ -57,5 +57,5 @@ Step 4 - Run the script on shell Linux: Ex.
 ```./Metrics_Performance_Extractor.sh```
  
 
-OBS: This script was only used with CBR traffic, but it can be adapted to TCP easily.
+OBS: This script was only used with CBR Application and UDP Traffic, but it can be adapted to FTP Application and TCP Traffic easily.
   
