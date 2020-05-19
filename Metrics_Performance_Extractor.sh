@@ -31,18 +31,15 @@ cat Trace_R_S.tr | awk -F " " 'BEGIN{
 lineCount = 0;
 totalBits = 0;
 }
-/^r/&&$24=="'$conta'"{
-	if ($8==1020) {
-		totalBits += 8*($8-20);
-   } else {
-		totalBits += 8*$8;
-	};
-	if (lineCount==0) {
-		timeBegin = $2;
-		lineCount++;
-	} else {
-		timeEnd = $2;
-	};
+lineCount = 0;totalBits = 0;
+}
+/^r/&&$4=="AGT"&&$24==fromNode&&$26==toNode {
+    totalBits += 8*($8-20);
+    if ( lineCount==0 ) {
+        timeBegin = $2; lineCount++;
+    } else {
+        timeEnd = $2;
+    };
 };
 END{
 duration = timeEnd-timeBegin;
