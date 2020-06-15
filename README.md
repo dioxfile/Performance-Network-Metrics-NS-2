@@ -17,7 +17,7 @@ Usage:
 
 ```root@terminal:# ./Metrics_Performance_Extractor.sh```
 
-![Screenshot](image.png)
+![Screenshot](MPE.png)
   
   OBS: Decimal places in Brazil use ',' instead '.'. This script runs only on Linux Systems. To run on Windows it must be severely adapted.
   
