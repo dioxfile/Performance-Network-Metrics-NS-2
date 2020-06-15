@@ -11,7 +11,7 @@ rm -r Energy/
 
 for sim in $(seq 0 0); do 
 echo "Cleanning Trace..."
-cat Trace_Cleaned_AODV.tr   | sed 's/\[//g' | sed 's/\]//g' | sed 's/\_//g' | sed 's/\:/ /g' \
+cat TRACE_File.tr   | sed 's/\[//g' | sed 's/\]//g' | sed 's/\_//g' | sed 's/\:/ /g' \
 | awk -F" " '{ {if($2 < 60.000000000) {print}}}' > Trace_Cleaned_Sujo.tr 
 cat Trace_Cleaned_Sujo.tr | uniq > Trace_Cleaned.tr
 
