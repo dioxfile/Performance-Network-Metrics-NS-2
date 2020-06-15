@@ -20,7 +20,7 @@ Usage:
 ![Screenshot](MPE.png)
   
  # OBS: 
-    a) Your simulations MUST BE running with the parameter '-macTrace ON' to calc routing overhead.
+    a) Your NS-2 simulations MUST BE running with the parameter '-macTrace ON' to calc routing overhead.
     b) Decimal places in Brazil use ',' instead '.'. 
     c) This script runs only on Linux Systems. To run on Windows it must be severely adapted.
   
