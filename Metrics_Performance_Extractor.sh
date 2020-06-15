@@ -13,7 +13,7 @@ rm -r Overhead/
 
 for sim in $(seq 0 0); do 
 echo "Cleanning Trace..."
-cat TRACE_File.tr   | sed 's/\[//g' | sed 's/\]//g' | sed 's/\_//g' | sed 's/\:/ /g' \
+cat TRACE_File.tr | sed 's/\[//g' | sed 's/\]//g' | sed 's/\_//g' | sed 's/\:/ /g' \
 | awk -F" " '{ {if($2 < 60.000000000) {print}}}' > Trace_Cleaned_Sujo.tr 
 cat Trace_Cleaned_Sujo.tr | uniq > Trace_Cleaned.tr
 
@@ -25,7 +25,7 @@ rm Trace_Cleaned_Sujo.tr
 #Based in: http://ns2ultimate.tumblr.com/post/3442965938/post-processing-ns2-result-using-ns2-trace-ex1 (T. Issaraiyakul and E. Hossain)
 echo "Extracting Throughput..."
 mkdir -pv Throughput
-for conta in $(seq 0 59);
+for conta in $(seq 0 49);
 do 
 cat Trace_R_S.tr | awk -F " " 'BEGIN{ 
 lineCount = 0;
@@ -54,7 +54,7 @@ Thoughput = totalBits/duration/1e3;
 };' > Throughput/Throughput_$conta.tr
 done;
 rm Throughput/mediaV.tr
-for conta in $(seq 0 59);
+for conta in $(seq 0 49);
 do
 ##### Checks if you have any empty files and writes a value so that the average calculation is computed without errors.
 if [ -s Throughput/Throughput_$conta.tr ]; then
@@ -82,7 +82,7 @@ egrep "^N.*" Trace_Cleaned.tr > Energy/Energia_total.e
 # The fields $5, $7 and $3 correspond respectively to: the node, the total energy and the current time within the simulation
 cat Energy/Energia_total.e | awk -F" " '{print $5 " " $7 " " $3}' > Energy/Energia_total_col_nodo_energy.e
 rm Energy/Energia_Final_Geral.e  
-for conta in $(seq 0 59);
+for conta in $(seq 0 49);
 do
 #The fields $3 and $2 are based on the file ''Energia_total_col_nodo_energy_unicos.e' and correspond to the simulation time and total energy 
 cat Energy/Energia_total_col_nodo_energy.e  | awk -F" " '{if($1=="'$conta'") {print $3 " " $2}}' > Energy/Energia_total_$conta.e 
@@ -143,7 +143,7 @@ cat Trace_Cleaned.tr | awk -F " " '{
 	}		
  }' > Packet_Loss/Selfish_Drops.tr
 rm Packet_Loss/Dropped_by_Selfish_Nodes.s
-for No in $(seq 0 59);
+for No in $(seq 0 49);
 do 
  cat Packet_Loss/Selfish_Drops.tr | awk -F" " '{
 		if($3 == "'$No'"){  
@@ -160,7 +160,7 @@ mkdir -pv Overhead
 rm Overhead/Overhead_by_no.tr 
 cat Trace_Cleaned.tr | awk -F" " '{if($1=="s" && ($7=="OLSR" || $7=="AODV" || $7=="DSR" || $7=="message")){{print}}}' > Overhead/OVER.tr
 awk -F" " 'END { print NR }' Overhead/OVER.tr > Overhead/Overhead.tr 
-for conta in $(seq 0 59);
+for conta in $(seq 0 49);
 do
 cat  Overhead/OVER.tr | awk -F" " '{
 	if($3=="'$conta'")
@@ -194,7 +194,7 @@ cat Trace_Cleaned.tr | egrep "^f.*" | awk -F" " '{if($7=="cbr" \
 # Record the quantity of all packets forwarded	
 awk -F" " 'END { print NR }' Forward/FWD_ALL.tr > Forward/Forward_ALL_Number.tr
 # Record how much each node forward, all packets
-for conta in $(seq 0 59); do
+for conta in $(seq 0 49); do
 cat Forward/FWD_ALL.tr | awk -F" " '{
 	if($3=="'$conta'") 
 	{print}
@@ -242,7 +242,7 @@ echo "End Forward Calculation!!!"
 echo "Extracting End-to-End Delay..."
 mkdir -pv Delay
 rm Delay/media.tr
-for conta in $(seq 0 59);
+for conta in $(seq 0 49);
 do
 cat Trace_R_S.tr | awk -F " " '{   
 	if($1 == "s" && $3=="'$conta'" && $4 == "AGT"){
@@ -293,7 +293,7 @@ echo  "End Delay Calculation ..."
 # Jitter Calculation
 echo "Extracting Jitter..."
 mkdir -pv Jitter
-for conta in $(seq 0 59);
+for conta in $(seq 0 49);
 do
 cat Delay/Delay_$conta.tr | awk -F " " '{
 vetor_Delay[NR] = $0
@@ -321,7 +321,7 @@ Vetor_media[NR] = $0
 done;
 # Global Average Jitter
 rm Jitter/media.tr
-for conta in $(seq 0 59);
+for conta in $(seq 0 49);
 do
 awk -F" " '{print}' Jitter/Media_Jitter_$conta.tr >> Jitter/media.tr
 done;
@@ -368,7 +368,7 @@ echo "Total Loss Percentage:" >> Simulation_Result.result
 cat Packet_Loss/PLR_R.p >> Simulation_Result.result
 echo "Overhead Units:" >> Simulation_Result.result
 cat Overhead/Overhead.tr >> Simulation_Result.result
-echo "Overhead (OverByteSend/DataByteRecv):" >> Simulation_Result.result
+echo "Overhead (OverBytesSend/DataBytesRecv):" >> Simulation_Result.result
 cat Overhead/Overhead_R.tr >> Simulation_Result.result
 echo "Forward Percentage:" >> Simulation_Result.result
 cat Forward/Forward_SUCCESS.tr >> Simulation_Result.result
