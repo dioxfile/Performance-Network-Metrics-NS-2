@@ -46,6 +46,7 @@ Usage:
 # How can I use this script in my NS-2 simulations?
 
 Step 1 - Download the script (e.g., Metrics_Performance_Extractor.sh) and open it with your preferred editor and change the parameters according to your needs, for instance: 
+ 
  a) trace file name, line 14 "TRACE_File.tr"; 
 
  b) simulation timeline 15, "60.000000000" is the simulation time; 
