@@ -8,6 +8,8 @@ rm -r Forward/
 rm -r Packet_Loss/
 rm -r Throughput/
 rm -r Energy/
+rm -r PDR/
+rm -r Overhead/
 
 for sim in $(seq 0 0); do 
 echo "Cleanning Trace..."
