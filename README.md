@@ -17,7 +17,7 @@ Usage:
 
 ```root@terminal:# ./Metrics_Performance_Extractor.sh```
 
-![Screenshot](MPE.png)
+![Screenshot](MPEx.png)
   
  # OBS: 
     a) Your simulations MUST BE running with the parameter '-macTrace ON' to calc routing overhead.
