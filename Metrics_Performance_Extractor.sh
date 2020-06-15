@@ -366,7 +366,7 @@ echo "Total Loss Percentage:" >> Simulation_Result.result
 cat Packet_Loss/PLR_R.p >> Simulation_Result.result
 echo "Overhead Units:" >> Simulation_Result.result
 cat Overhead/Overhead.tr >> Simulation_Result.result
-echo "Overhead (OverSended/DataReceived):" >> Simulation_Result.result
+echo "Overhead (OverByteSend/DataByteRecv):" >> Simulation_Result.result
 cat Overhead/Overhead_R.tr >> Simulation_Result.result
 echo "Forward Percentage:" >> Simulation_Result.result
 cat Forward/Forward_SUCCESS.tr >> Simulation_Result.result
