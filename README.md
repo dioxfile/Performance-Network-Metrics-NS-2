@@ -1,6 +1,6 @@
 # Performance-Network-Metrics-NS-2
  
-  * Name: "Performance-Network-Metrics-NS-2". Script to extract performance metrics from NS-2 traces, such as throughput, end-to-end delay, jitter, routing overhead, packet forwarding, packet loss rate (selfish nodes too), and energy consumption.                                           
+  * Name: "Performance-Network-Metrics-NS-2". Script to extract performance metrics from NS-2 traces, such as throughput, energy consumption, packet loss rate (selfish nodes too), routing overhead, packet forwarding rate, end-to-end delay, jitter, and packet delivery rate.                                           
   
   *   Copyright (C) 2013 by Diógenes Antônio Marque José dioxfile@unemat.br.                                            
   *   UNEMAT Brazil, Barra do Bugres Campus: bbg.unemat.br.                 
