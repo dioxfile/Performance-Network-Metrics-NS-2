@@ -1,23 +1,29 @@
-
 SIMULATION 0
 Generated Packets:
-9562
+6393
 Throughput:
-121,49368
-Energy:
-2,72598
+113,27350
+Energy Consumption:
+4,32439
 Loss by Selfishness:
-167
-Total Loss:
-3946
-Forward:
-0,74921
-Overhead:
-1009
-Delay:
-0,003458
-Jitter:
-0,000484721
+0
+Total Loss Units:
+2379
+Total Loss Percentage:
+37,2126
+Overhead Units:
+1260
+Overhead (OverByteSend/DataByteRecv):
+12,5173
+Forward Percentage:
+0 %
+Delay (ms):
+2,453783
+Jitter (ms):
+0,683182259
+PDR (%):
+62,7874
+
 END SIMULATION
 
 
