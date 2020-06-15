@@ -20,7 +20,7 @@ Usage:
 ![Screenshot](MPE.png)
   
  # OBS: 
-    a) Your simulations MUST BE running with the parameter `-macTrace ON` to calc routing overhead.
+    a) Your simulations MUST BE running with the parameter '-macTrace ON' to calc routing overhead.
     b) Decimal places in Brazil use ',' instead '.'. 
     c) This script runs only on Linux Systems. To run on Windows it must be severely adapted.
   
@@ -45,7 +45,14 @@ Usage:
  
 # How can I use this script in my NS-2 simulations?
 
-Step 1 - Download the script (e.g., Metrics_Performance_Extractor.sh) and open it with your preferred editor and change the parameters according to your needs, for instance: a) trace file name, line 14 "TRACE_File.tr"; b) simulation timeline 15, "60.000000000" is the simulation time; c) nodes numbers in all lines with this code "for conta in $(seq 0 59)", 60 is the node quantity; d) Packet size for throughput calculation line 33 (e.g., ($8==PACKET_SIZE)), because in 'AGT' layer are added 20 bytes by Application Layer, and it mustn't be calculated. For example: ```r 59.996499045 _16_ AGT  --- 9223 cbr 270 13a 10 31 800 energy 92.187329 ei 0.000 es 0.000 et 2.230 er 5.583 ------- 49 0 16 0 31 16 3197 1 1```, in this trace file snippet the packet received by node 16 has 270 Bytes (e.g., the field eight = 270). However, the original size is 250 Bytes, the additional 20 bytes were inserted by the application layer. Finally save the script to the same folder where the simulation trace was generated and change the name of your trace to TRACE_File.tr.
+Step 1 - Download the script (e.g., Metrics_Performance_Extractor.sh) and open it with your preferred editor and change the parameters according to your needs, for instance: 
+ a) trace file name, line 14 "TRACE_File.tr"; 
+
+ b) simulation timeline 15, "60.000000000" is the simulation time; 
+
+ c) nodes numbers in all lines with this code "for conta in $(seq 0 49)", 50 is the node quantity; 
+
+ d) Packet size for throughput calculation line 33 (e.g., ($8==PACKET_SIZE)), because in 'AGT' layer are added 20 bytes    by    Application Layer, and it mustn't be calculated. For example: ```r 59.996499045 _16_ AGT  --- 9223 cbr 270 13a 10 31 800 energy 92.187329 ei 0.000 es 0.000 et 2.230 er 5.583 ------- 49 0 16 0 31 16 3197 1 1```, in this trace file snippet the packet received by node 16 has 270 Bytes (e.g., the field eight = 270). However, the original size is 250 Bytes, the additional 20 bytes were inserted by the application layer. Finally, save the script to the same folder where the simulation trace was generated and change the name of the trace from TRACE_File.tr to YOUR_TRACE.tr
 
 Step 2 - Install dialog (not substantial) and gawk (substantial). Ex. command on shell Linux:
 
