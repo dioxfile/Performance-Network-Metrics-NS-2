@@ -21,7 +21,7 @@ Usage:
   
   OBS: Decimal places in Brazil use ',' instead '.'. This script runs only on Linux Systems. To run on Windows it must be severely adapted.
   
-  The script only will work correctly if the trace file is inside the same folder of the script, "TRACE_File.tr". Thus, after the script is executed seven folders are created, for example, Throughput/, Energy/, Packet_Loss/, Overhead/, Forward/, Delay/, Jitter/, and PDR/. All folders contain many files that can be used for simulation analysis. In addition, it is necessary to change parameters in the script according to the simulation to be performed, for example, simulation time, nodes numbers, or a new routing protocol.
+  The script only will work correctly if the trace file is inside the same folder of the script, "TRACE_File.tr". Thus, after the script is executed eigh folders are created, for example, Throughput/, Energy/, Packet_Loss/, Overhead/, Forward/, Delay/, Jitter/, and PDR/. All folders contain many files that can be used for simulation analysis. In addition, it is necessary to change parameters in the script according to the simulation to be performed, for example, simulation time, nodes numbers, or a new routing protocol.
   
  How do I test this script?
  
