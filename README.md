@@ -15,22 +15,20 @@
 
 Usage: 
 
-```root@terminal:# ./Metrics_Performance_Extractor.sh```
+```root@terminal:# ./Metrics_Performance_Extractor.sh <FILE.tr> <PACKET_SIZE> <NODE_N>```
 
 ![Screenshot](MPE.png)
   
  # OBS: 
-    a) Your NS-2 simulations MUST BE running with the parameter '-macTrace ON' to calc routing overhead.
-    b) Decimal places in Brazil use ',' instead '.'. 
-    c) This script runs only on Linux Systems. To run on Windows it must be severely adapted.
+    a) Decimal places in Brazil use ',' instead '.'. 
+    b) This script runs only on Linux Systems. To run on Windows it must be severely adapted.
   
-  The script only will work correctly if the trace file is inside the same folder of the script, "TRACE_File.tr". Thus, after the script is executed eigh folders are created, for example, Throughput/, Energy/, Packet_Loss/, Overhead/, Forward/, Delay/, Jitter/, and PDR/. All folders contain many files that can be used for simulation analysis. In addition, it is necessary to change parameters in the script according to the simulation to be performed, for example, simulation time, nodes numbers, or a new routing protocol.
+  The script takes as a parameter three arguments which are: <FILE.tr> (e.g., Trace File) <PACKET_SIZE> (e.g., packet size plus 20 bytes extra ) <NODE_N> (e.g., number of nodes in the simulation). Thus, after the script is executed eight folders are created, for example, Throughput /, Energy /, Packet_Loss /, Overhead /, Forward /, Delay /, Jitter /, and PDR /. All folders contain many files that can be used for simulation analysis. In addition, it is necessary to change parameters in the script according to the simulation to be performed, for example, packet size, nodes numbers, or a new routing protocol.
   
  How do I test this script?
  
- Step 1 - Download Metrics_Performance_Extractor.sh and TRACE_File_DSDV.tr. Put them in the same directory/folder and change the file name TRACE_File.tr to TRACE_File_DSDV.tr.
- 
- Step 2 - Install dialog (not substantial) and gawk (substantial). Ex. command on shell Linux:
+ Step 1 - Download Metrics_Performance_Extractor.sh and TRACE_File_DSDV.tr, and put them in the same directory/folder.
+ Step 2 - Install dialog (not substantial) and gawk/awk (substantial). Ex. command on shell Linux:
  
  ``` sudo apt install dialog gawk```
  
@@ -40,7 +38,7 @@ Usage:
  
  Step 4 - Run the script: Ex. command on shell Linux:
  
- ```sudo ./Metrics_Performance_Extractor.sh```
+ ```sudo ./Metrics_Performance_Extractor.sh TRACE_File_DSDV.tr 520 50```
  
  
 # How can I use this script in my NS-2 simulations?
