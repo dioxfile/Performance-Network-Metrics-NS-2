@@ -19,7 +19,7 @@ Usage:
 # OBS: 
     a) <FILE.tr>: trace file.
     b) <PACKET_SIZE>: packet size in bytes plus 20 bytes extra (e.g., will be explained below).
-    c) <NODE_N>: node quantity in the sumulation.
+    c) <NODE_N>: node quantity in the simulation.
     d) Decimal places in Brazil use ',' instead '.'. 
     e) This script runs only on Linux Systems. To run on Windows it must be severely adapted.
 
