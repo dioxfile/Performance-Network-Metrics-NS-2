@@ -15,7 +15,7 @@
 
 Usage: 
 
-```root@terminal:# ./Metrics_Performance_Extractor.sh <FILE.tr> <PACKET_SIZE> <NODE_N>```
+```user@terminal:$ sudo ./Metrics_Performance_Extractor.sh <FILE.tr> <PACKET_SIZE> <NODE_N>```
 # OBS: 
     a) <FILE.tr>: trace file.
     b) <PACKET_SIZE>: packet size in bytes plus 20 bytes extra (e.g., will be explained below).
