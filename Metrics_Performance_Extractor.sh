@@ -47,19 +47,17 @@ lineCount = 0;
 totalBits = 0
 duration = 0;
 }
+{if($1=="s" && lineCount==0){ 
+	timeBegin = $2; lineCount++
+} else {
+	timeEnd = $2;
+}}
 /^r/&&$4=="AGT"&&$24=="'$conta'"{
 	if ($8=="'$PACKET_SIZE'") {
 		totalBits += $8-20;
    } else {
 		totalBits += $8;
-	};
-	if (lineCount==0) {
-		timeBegin = $2;
-		lineCount++;
-	} else {
-		timeEnd = $2;
-	};
-};
+   };};
 END{
 duration = timeEnd-timeBegin;
 	if(duration > 0 ) { 
@@ -70,7 +68,7 @@ duration = timeEnd-timeBegin;
 ##### Checks if you have any empty files and writes a value so that the 
 # average calculation is computed without errors.
 if [ -s Throughput/Throughput_$conta.tr ]; then
-awk -F" " '{print}' Throughput/Throughput_$conta.tr >> Throughput/mediaV.tr
+awk -F" " '{{if($1!=0.0){{print}}}}' Throughput/Throughput_$conta.tr >> Throughput/mediaV.tr
 fi
 done;
 #Average Throughput
@@ -113,7 +111,7 @@ Vetor_media[NR] = $0
 		media = (soma/NR)
 		printf("%3.9f",media)
 }' > Energy/Energy_Average.tr
-echo "End of Throughput Calculation..."
+echo "End of Energy Calculation..."
 
 #Packet Loss Rate Calculation
 echo "Extracting Packet Loss Rate..."
@@ -301,7 +299,24 @@ DL[NR] = $0;
 		soma = soma + DL[m]	
 	}
 	printf("%3.9f",soma)
-}' > Delay/Total_Delay.tr
+}' > Delay/Total_Node_Delay.tr
+cat Trace_R_S.tr | awk -F" " 'BEGIN{
+count=0;
+}
+{   
+	if($1 == "s" && $4 == "AGT"){
+		s_pacote[$6]=$2
+		snd[$6]=$6
+	}
+	if($1 == "r" && $4 == "AGT"){
+		count++
+		r_pacote[$6]=$2
+		rcv[$6]=$6
+		if($6 in r_pacote && $6 in r_pacote && $6 in snd && $6 in rcv){
+			delay+=r_pacote[$6]-s_pacote[$6]
+		}
+	}
+} END {printf("%3.9f\n",delay/count);}' > Delay/Total_Delay.tr
 echo  "End Delay Calculation ..."
 
 # Jitter Calculation
@@ -362,6 +377,46 @@ JT[NR] = $0;
 	}
 	printf("%3.9f",soma)
 }' > Jitter/Total_Jitter.tr
+#Total Network Jitter
+cat Trace_R_S.tr | awk -F" " '{   
+	if($1 == "s" && $4 == "AGT"){
+		s_pacote[$6]=$2
+		snd[$6]=$6
+	}
+	if($1 == "r" && $4 == "AGT"){
+		count++
+		r_pacote[$6]=$2
+		rcv[$6]=$6
+		if($6 in r_pacote && $6 in r_pacote && $6 in snd && $6 in rcv){
+			delay=r_pacote[$6]-s_pacote[$6]
+			printf("%3.9f\n",delay);
+		}
+	}
+}' > Jitter/Delay_for_Jitter_Network.tr
+cat  Jitter/Delay_for_Jitter_Network.tr | awk -F" " '{
+count=0;
+vetor_EED[NR] = $0;
+} END {	
+	n = 1
+	for(i = 0;i < NR; i++){
+		jitter = vetor_EED[n] - vetor_EED[i]
+		if(jitter < 0){
+			jitter = (jitter * -1)}
+		printf("%3.9f\n",jitter)	
+		n++ 
+		
+	} 
+}' > Jitter/Total_J.tr
+cat Jitter/Total_J.tr | awk -F" " '{
+Vetor_media[NR] = $0
+} END {
+	for(j = 1; j <= NR; j++){
+	soma = soma + Vetor_media[j]	
+	}
+	media = soma/NR
+	printf("%3.9f",media)
+}' > Jitter/Total_Network_Jitter.tr
+
 echo "End Jitter Calculation..."
 
 #Packet Delivery Rate Calc
@@ -376,15 +431,15 @@ echo "Finish PDR..."
 #Stores the average of 'n' simulations in a single file.
 echo "Extracting Simulation Result ... Please wait"
 echo "SIMULATION " >> Simulation_Result.result
-echo "Generated Packets:" >> Simulation_Result.result
+echo "Number of Generated Packets:" >> Simulation_Result.result
 awk -F" " 'END { print NR }' Packet_Loss/S.tr >> Simulation_Result.result
-echo "Total Throughput (Kbps):" >> Simulation_Result.result
+echo "Total Network Throughput (e.g., Total Bits Delivery/Total Observation Time(s)) (Kbps):" >> Simulation_Result.result
 cat Throughput/Total_Throughput.tr >> Simulation_Result.result
-echo "\nAverage Throughput (Kbps):" >> Simulation_Result.result
+echo "\nNodes Average Throughput (e.g., (Node_T1+Node_T2+...+Node_Tn)/Node Flow Number) (Kbps):" >> Simulation_Result.result
 cat Throughput/Media_Throughput.tr >> Simulation_Result.result
-echo "\nAverage Energy Consumption (Joules):" >> Simulation_Result.result
+echo "\nAverage Energy Consumption (e.g., Total Energy Spent/Node Number)(Joules):" >> Simulation_Result.result
 cat Energy/Energy_Average.tr >> Simulation_Result.result
-echo "\nPacket Loss by Selfishness:" >> Simulation_Result.result
+echo "\nPacket Loss by Selfishness (Units):" >> Simulation_Result.result
 cat Packet_Loss/Dropped_by_Selfish_Nodes.s | awk -F" " '{\
 	Vetor_media[NR] = $0
 } END {
@@ -398,19 +453,23 @@ echo "Total Packet Loss Percentage (%):" >> Simulation_Result.result
 cat Packet_Loss/PLR_R.p >> Simulation_Result.result
 echo "Overhead (Units):" >> Simulation_Result.result
 cat Overhead/Overhead.tr >> Simulation_Result.result
-echo "Overhead_Bytes/Data_Bytes ($OH/$DATA):" >> Simulation_Result.result
+echo "Overhead_Bytes/Data_Bytes ($OH/$DATA) (%):" >> Simulation_Result.result
 cat Overhead/Overhead_R.tr >> Simulation_Result.result
 echo "Normalized Overhead (%):" >> Simulation_Result.result
 cat Overhead/Overhead_Normalized.tr >> Simulation_Result.result
-echo "Forward Percentage (%):" >> Simulation_Result.result
+echo "Forward Percentage (e.g., Total Packet Forward/Packet Received With Success) (%):" >> Simulation_Result.result
 cat Forward/Forward_SUCCESS.tr >> Simulation_Result.result
-echo "\nTotal Delay in seconds (s):" >> Simulation_Result.result
+echo "\nTotal Network Delay in seconds (e.g., Total Delay/Packet Received With Success) (s):" >> Simulation_Result.result
 cat Delay/Total_Delay.tr >> Simulation_Result.result
-echo "\nAverage Delay in seconds (s):" >> Simulation_Result.result
+echo "Total Delay in seconds (e.g., sum(Node_Delay1+Node_Delay2+...+Node_Delayn)) (s):" >> Simulation_Result.result
+cat Delay/Total_Node_Delay.tr >> Simulation_Result.result
+echo "\nAverage Delay in seconds (e.g., sum(Node_Delay1+Node_Delay2+...+Node_Delayn)/Node Flow Number)(s):" >> Simulation_Result.result
 cat Delay/MediaGlobal_At.tr >> Simulation_Result.result
-echo "\nTotal Jitter in seconds (s):" >> Simulation_Result.result
+echo "\nTotal Network Jitter in seconds (e.g., Total Jitter/Packet Received With Success) (s):" >> Simulation_Result.result
+cat Jitter/Total_Network_Jitter.tr >> Simulation_Result.result
+echo "\nTotal Jitter in seconds (e.g., sum(Node_Jitter1+Node_Jitter2+...+Node_Jittern)) (s):" >> Simulation_Result.result
 cat Jitter/Total_Jitter.tr >> Simulation_Result.result
-echo "\nAverage Jitter in seconds (s):" >> Simulation_Result.result
+echo "\nAverage Jitter in seconds (e.g., sum(Node_Jitter1+Node_Jitter2+...+Node_Jittern/Node Flow Number)) (s):" >> Simulation_Result.result
 cat Jitter/MediaGlobal_Jt.tr >> Simulation_Result.result
 echo "\nPDR (%):" >> Simulation_Result.result
 cat PDR/PDR.p >> Simulation_Result.result
