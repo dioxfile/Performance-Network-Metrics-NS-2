@@ -1,29 +1,39 @@
-SIMULATION 0
-Generated Packets:
+SIMULATION 
+Number of Generated Packets:
 6393
-Throughput:
-113,27350
-Energy Consumption:
-4,32439
-Loss by Selfishness:
+Total Network Throughput (e,g., Total Bits Delivery/Total Observation Time(s)) (Kbps):
+160,706330000
+Nodes Average Throughput (e,g., (Node_T1+Node_T2+...+Node_Tn)/Node Flow Number) (Kbps):
+80,35317
+Average Energy Consumption (e,g., Total Energy Spent/Node Number)(Joules):
+4,305276400
+Packet Loss by Selfishness (Units):
 0
-Total Loss Units:
+Total Packet Loss (Units):
 2379
-Total Loss Percentage:
+Total Packet Loss Percentage (%):
 37,2126
-Overhead Units:
-1260
-Overhead (OverByteSend/DataByteRecv):
-12,5173
-Forward Percentage:
-0 %
-Delay (ms):
-2,453783
-Jitter (ms):
-0,683182259
+Overhead (Units):
+630
+Overhead_Bytes/Data_Bytes (99120/1083780) (%):
+9,14577
+Normalized Overhead (%):
+15,6951
+Forward Percentage (e,g., Total Packet Forward/Packet Received With Success) (%):
+37 %
+Total Network Delay in seconds (e,g., Total Delay/Packet Received With Success) (s):
+0,002397689
+Total Delay in seconds (e,g., sum(Node_Delay1+Node_Delay2+...+Node_Delayn)) (s):
+0,004907566
+Average Delay in seconds (e,g., sum(Node_Delay1+Node_Delay2+...+Node_Delayn)/Node Flow Number)(s):
+0,002453783
+Total Network Jitter in seconds (e,g., Total Jitter/Packet Received With Success) (s):
+0,001279166
+Total Jitter in seconds (e,g., sum(Node_Jitter1+Node_Jitter2+...+Node_Jittern)) (s):
+0,001366970
+Average Jitter in seconds (e,g., sum(Node_Jitter1+Node_Jitter2+...+Node_Jittern/Node Flow Number)) (s):
+0,000683485
 PDR (%):
 62,7874
 
 END SIMULATION
-
-
