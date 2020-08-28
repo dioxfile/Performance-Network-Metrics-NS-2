@@ -30,6 +30,7 @@ Usage:
  How do I test this script?
  
  Step 1 - Download Metrics_Performance_Extractor.sh and TRACE_File_DSDV.tr, and put them in the same directory/folder (if possible).
+ 
  Step 2 - Install dialog (not substantial) and gawk/awk (substantial). Ex. command on shell Linux:
  
  ``` sudo apt install dialog gawk```
