@@ -18,7 +18,7 @@ Usage:
 ```user@terminal:$ sudo ./Metrics_Performance_Extractor.sh <FILE.tr> <PACKET_SIZE> <NODE_N>```
 # OBS: 
     a) <FILE.tr>: trace file.
-    b) <PACKET_SIZE>: packet size in bytes plus 20 bytes extra (e.g., will be explained below).
+    b) <PACKET_SIZE>: packet size in bytes plus 20 bytes extra (e.g., This will be explained below).
     c) <NODE_N>: node quantity in the simulation.
     d) Decimal places in Brazil use ',' instead '.'. 
     e) This script runs only on Linux Systems. To run on Windows it must be severely adapted.
