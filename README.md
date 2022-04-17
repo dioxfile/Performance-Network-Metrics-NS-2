@@ -49,7 +49,9 @@ Usage:
 Step 1 - Download the script (e.g., Metrics_Performance_Extractor.sh) and open it with your preferred editor and change the parameters according to your needs, for instance: 
  
  a) ```user@terminal:$ sudo ./Metrics_Performance_Extractor.sh <FILE.tr> <PACKET_SIZE> <NODE_N>```.
+ 
  b) Packet size for throughput calculation line 56 (e.g., ($8==$PACKET_SIZE)) is used because in the destination application layer (e.g., 'AGT') 20 more bytes are added and they should not be included in the throughput calculation. For example: ```r 59.996499045 _16_ AGT  --- 9223 cbr 270 13a 10 31 800 energy 92.187329 ei 0.000 es 0.000 et 2.230 er 5.583 ------- 49 0 16 0 31 16 3197 1 1```, in this trace file snippet the packet received by node 16 has 270 Bytes (e.g., the field eight = 270). However, the original size is 250 Bytes, the additional 20 bytes were inserted by the application layer;
+ 
  c) An observation to be made is the fact that some protocols, for example, the DSR, do not add the 20 bytes application layer, so using the following code if ($8=="'$PACKET_SIZE'") {totalBits += 8*($8-20);}else{totalBits += 8*$8;};};, lines 56 to 60.
 
 Step 2 - Install dialog (not substantial) and gawk/awk (substantial). Ex. command on shell Linux:
