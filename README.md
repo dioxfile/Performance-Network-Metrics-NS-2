@@ -42,7 +42,7 @@ Usage:
  
  Step 4 - Run the script: Ex. command on shell Linux:
  
- ```sudo ./Metrics_Performance_Extractor.sh TRACE_File_DSDV.tr 520 50```
+ ```sudo ./Metrics_Performance_Extractor.sh TRACE_File_DSDV.tr 270 50 2```
  
  
 # How can I use this script in my NS-2 simulations?
