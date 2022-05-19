@@ -26,7 +26,7 @@ Usage:
 # Result of running the script:
 ![Sceenshot](MPE.png)
   
-  The script takes as a parameter three arguments which are: <FILE.tr> (e.g., Trace File); <PACKET_SIZE>, packet size plus 20 bytes extra; and <NODE_N> (e.g., number of nodes in the simulation). Thus, after the script is executed eight folders are created, for example, Throughput/, Energy/, Packet_Loss/, Overhead/, Forward/, Delay/, Jitter/, and PDR/. All folders contain many files that can be used for simulation analysis. In addition, it is necessary to change parameters in the script according to the simulation to be performed, for example, packet size, nodes numbers, or a new routing protocol.
+  The script takes as a parameter four arguments which are: <FILE.tr> (e.g., Trace File); <PACKET_SIZE>, packet size plus 20 bytes extra; <NODE_N> (e.g., number of nodes in the simulation), and <FLOW_N> (ex. number of traffic flows). Thus, after the script is executed eight folders are created, for example, Throughput/, Energy/, Packet_Loss/, Overhead/, Forward/, Delay/, Jitter/, and PDR/. All folders contain many files that can be used for simulation analysis. In addition, it is necessary to change parameters in the script according to the simulation to be performed, for example, packet size, nodes numbers, or a new routing protocol.
   
  How do I test this script?
  
