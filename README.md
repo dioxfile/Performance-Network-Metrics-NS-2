@@ -38,7 +38,7 @@ Usage:
  
  Step 3 - Execute permission to script with the following command shell Linux: 
  
-  ```sudo chmod +x Metrics_Performance_Extractor.sh```
+  ```sudo chmod +x Metrics_Performance_Extractor_NEW_(CBR/TCP).sh```
  
  Step 4 - Run the script: Ex. command on shell Linux:
  
@@ -47,9 +47,9 @@ Usage:
  
 # How can I use this script in my NS-2 simulations?
 
-Step 1 - Download the script (e.g., Metrics_Performance_Extractor.sh) and open it with your preferred editor and change the parameters according to your needs, for instance: 
+Step 1 - Download the script (e.g., Metrics_Performance_Extractor_NEW_(CBR/TCP).sh) and open it with your preferred editor and change the parameters according to your needs, for instance: 
  
- a) ```user@terminal:$ sudo ./Metrics_Performance_Extractor.sh <FILE.tr> <PACKET_SIZE> <NODE_N> <FLOW_N>```;
+ a) ```user@terminal:$ sudo ./Metrics_Performance_Extractor_NEW_(CBR/TCP).sh <FILE.tr> <PACKET_SIZE> <NODE_N> <FLOW_N>```;
  
  b) Packet size for throughput calculation line 56 (e.g., ($8==$PACKET_SIZE)) is used because in the destination application layer (e.g., 'AGT') 20 more bytes are added and they should not be included in the throughput calculation. For example: ```r 59.996499045 _16_ AGT  --- 9223 cbr 270 13a 10 31 800 energy 92.187329 ei 0.000 es 0.000 et 2.230 er 5.583 ------- 49 0 16 0 31 16 3197 1 1```, in this trace file snippet the packet received by node 16 has 270 Bytes (e.g., the field eight = 270). However, the original size is 250 Bytes, the additional 20 bytes were inserted by the application layer;
  
@@ -61,11 +61,11 @@ Step 2 - Install dialog (not substantial) and gawk/awk (substantial). Ex. comman
  
 Step 3 - Execute permission to script with the following command: 
 
-```sudo chmod +x Metrics_Performance_Extractor.sh```
+```sudo chmod +x Metrics_Performance_Extractor_NEW_(CBR/TCP).sh```
  
 Step 4 - Run the script on shell Linux (ex. dash, bash, sh, etc.): Ex. 
 
-```user@terminal:$ sudo ./Metrics_Performance_Extractor.sh <FILE.tr> <PACKET_SIZE> <NODE_N> <FLOW_N>```
+```user@terminal:$ sudo ./Metrics_Performance_Extractor_NEW_(CBR/TCP).sh <FILE.tr> <PACKET_SIZE> <NODE_N> <FLOW_N>```
 
 OBS (VERY IMPORTANT): Another important issue is to use the amount of traffic flows as a parameter. The amount of traffic flows is used to calculate average throughput, average delay, and average jitter. Therefore, in situations where Type 1 selfish nodes are evaluated (eg. https://ieeexplore.ieee.org/document/5440229) some links/flows between two nodes can be zero, depending on the action of selfish nodes, and generate result errors. Thus, for this not to happen, it is necessary to use the number of flows as a parameter. NS-2 users can find the number of flows in the traffic file, for example in the last line of it: ```Total sources/connections: 8/8```, in this example there are eight flows. So, before using the metrics extractor, find the number of flows in the traffic file!!!
  
