@@ -1,4 +1,4 @@
-# Performance-Network-Metrics-NS-2
+# (NEWs, NEWs, NEWs!!!) Performance-Network-Metrics-NS-2
  ![alt text](https://github.com/dioxfile/Performance-Network-Metrics-NS-2/blob/master/metric.png)
   * Name: "Performance-Network-Metrics-NS-2". Script to extract performance metrics from NS-2 traces, such as throughput, energy consumption, packet loss rate (selfish nodes too), routing overhead, packet forwarding rate, end-to-end delay, jitter, and packet delivery rate.                                           
   
