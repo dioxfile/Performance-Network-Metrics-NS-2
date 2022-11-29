@@ -70,5 +70,5 @@ Step 4 - Run the script on shell Linux (ex. dash, bash, sh, etc.): Ex.
 OBS (VERY IMPORTANT): Another important issue is to use the amount of traffic flows as a parameter. The amount of traffic flows is used to calculate average throughput, average delay, and average jitter. Therefore, in situations where Type 1 selfish nodes are evaluated (eg. https://ieeexplore.ieee.org/document/5440229) some links/flows between two nodes can be zero, depending on the action of selfish nodes, and generate result errors. Thus, for this not to happen, it is necessary to use the number of flows as a parameter. NS-2 users can find the number of flows in the traffic file, for example in the last line of it: ```Total sources/connections: 8/8```, in this example there are eight flows. So, before using the metrics extractor, find the number of flows in the traffic file!!!
  
 
-## NOW This script can be used with CBR/FTP Application and UDP/TCP Traffic!!!
+## NOW This script can be used with CBR/FTP Application, and UDP/TCP Traffic!!!
   
