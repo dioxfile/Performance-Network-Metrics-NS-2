@@ -18,7 +18,7 @@ Usage:
 ```user@terminal:$ sudo ./Metrics_Performance_Extractor.sh <FILE.tr> <PACKET_SIZE> <NODE_N> <FLOW_N>```
 # OBS: 
     a) <FILE.tr>: trace file.
-    b) <PACKET_SIZE>: Packet size in bytes plus 20 bytes extra (e.g., This will be explained below).
+    b) <PACKET_SIZE>: Packet size in bytes plus 20 or 60 bytes extra (e.g., This will be explained below).
     c) <NODE_N>: Node quantity in the simulation.
     d) <FLOW_N>: Number of traffic flows.
     d) Decimal places in Brazil use ',' instead '.'. 
