@@ -63,7 +63,7 @@ Step 3 - Execute permission to script with the following command:
 
 ```sudo chmod +x Metrics_Performance_Extractor_NEW_(CBR/TCP).sh```
  
-Step 4—Run the script on shell Linux (e.g., dash, bash, sh, etc.): Ex. 
+Step 4 - Run the script on shell Linux (e.g., dash, bash, sh, etc.): Ex. 
 
 ```user@terminal:$ sudo ./Metrics_Performance_Extractor_NEW_(CBR/TCP).sh <FILE.tr> <PACKET_SIZE> <NODE_N> <FLOW_N>```
 
